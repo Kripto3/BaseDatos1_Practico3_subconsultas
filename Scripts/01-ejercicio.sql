@@ -1,3 +1,16 @@
+/*
+Ejercicio Nº 1:
+Mostrar los datos de los consorcios (provincia, localidad, nombres, dirección y zona) que
+pertenezcan a las dos zonas con mayor cantidad de consorcios.
+*/
+
+-- Obtener las dos zonas con mayor cantidad de consorcios
+    SELECT TOP 2 idzona
+    FROM consorcio
+    GROUP BY idzona
+    ORDER BY COUNT(*) DESC
+
+
 SELECT 
 	Provincia = P.descripcion,
 	Localidad = L.descripcion,
@@ -18,4 +31,4 @@ WHERE C.idzona IN ( -- se usa IN porque retorna los 2 id de zona (6,5)
     GROUP BY idzona
     ORDER BY COUNT(*) DESC
 ) 
-ORDER BY Z.descripcion, P.descripcion, L.descripcion, C.nombre;
+ORDER BY Z.descripcion, P.descripcion, L.descripcion, C.nombre; --Ordenamiento por defecto es ascendente
